@@ -22,6 +22,9 @@ function startTimer() {
 }
 
 // スタートボタンにクリックイベントを追加
-$(".button-area button").eq(0).on("click", function () {
-  startTimer(); // スタートボタンで計測開始
+document.getElementById("start-button").addEventListener("click", startTimer);
+
+//ストップボタンを押下するとtimerIntervalの繰り返し処理を停止させる
+document.getElementById("stop-button").addEventListener("click", function () {
+  clearInterval(timerInterval); // タイマーを停止
 });
