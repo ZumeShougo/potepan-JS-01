@@ -8,16 +8,21 @@
   </head>
 
   <body>
-    <h3>ストップウォッチ</h3>
-    <p class="stopwatch-result">
-      0<span>:</span>0<span>:</span>0<span>:</span>0
-    </p>
-    <div class="button-area">
-      <ul>
-        <li><button id="start-button">スタート</button></li>
-        <li><button id="stop-button">ストップ</button></li>
-        <li><button id="reset-button">リセット</button></li>
-      </ul>
+    <div class="stopwatch-area">
+      <h3>ストップウォッチ</h3>
+      <div class="stopwatch-result">
+          <span class="time hours">0</span><span class="colon">:</span>
+          <span class="time minutes">0</span><span class="colon">:</span>
+          <span class="time seconds">0</span><span class="colon">:</span>
+          <span class="time milliseconds">0</span>
+      </div>
+      <div class="button-area">
+        <ul>
+          <li><button id="start-button">スタート</button></li>
+          <li><button id="stop-button">ストップ</button></li>
+          <li><button id="reset-button">リセット</button></li>
+        </ul>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>

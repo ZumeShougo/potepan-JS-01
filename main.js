@@ -8,8 +8,10 @@ function formatTime(time) {
   const minutes = Math.floor((time % (60 * 60 * 1000)) / (60 * 1000));
   const seconds = Math.floor((time % (60 * 1000)) / 1000);
   const milliseconds = Math.floor((time % 1000) / 10);
-
-  return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+  document.querySelector(".time.hours").textContent = hours;
+  document.querySelector(".time.minutes").textContent = minutes;
+  document.querySelector(".time.seconds").textContent = seconds;
+  document.querySelector(".time.milliseconds").textContent = milliseconds;
 }
 
 // 計測を開始する関数
@@ -17,7 +19,7 @@ function startTimer() {
   startTime = Date.now() - elapsedTime; //現在時刻から経過時間を引いて開始時刻を計算する。
   timerInterval = setInterval(() => {
     elapsedTime = Date.now() - startTime; //現在時刻から開始時刻を引いて経過時間を計算する。
-    $(".stopwatch-result").text(formatTime(elapsedTime));//関数formatTimeに引数elapsedTime(経過時間)を渡す。
+    formatTime(elapsedTime);//関数formatTimeに引数elapsedTime(経過時間)を渡す。
   }, 10); // 10ミリ秒ごとに更新
 }
 
@@ -43,7 +45,7 @@ document.getElementById("stop-button").addEventListener("click", function () {
 document.getElementById("reset-button").addEventListener("click", function () {
   clearInterval(timerInterval); // タイマーを停止
   elapsedTime = 0; // 経過時間をリセット
-  document.querySelector(".stopwatch-result").textContent = "0:0:0:0"; // 表示をリセット
+  formatTime(elapsedTime); // 表示をリセット
   toggleButtons(false, true, true);
 });
 
